@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*background: image repeat position/size*/
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+}
+
+/*IMPORTANTE: display: none => o objeto some da tela; 
+              display: block => vai dar toda a largura possível de tela;
+              display: inline => ocupa a linha inteira, por isso não consigo aplicar margin: auto para centralizar se o objeto estiver "inline";
+            */
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
