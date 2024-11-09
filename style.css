@@ -8,8 +8,8 @@
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.1);
-  --surface-color-hover: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/moon-stars.svg);
 }
@@ -18,15 +18,15 @@
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(0, 0, 0, 0.1);
-  --surface-color-hover: rgba(0, 0, 0, 0.5);
-  --highlight-color: rgba(0, 0, 0, 0.2);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
-  /*background: image repeat position/size*/
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -35,15 +35,11 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
 }
-
-/*IMPORTANTE: display: none => o objeto some da tela; 
-              display: block => vai dar toda a largura possível de tela;
-              display: inline => ocupa a linha inteira, por isso não consigo aplicar margin: auto para centralizar se o objeto estiver "inline";
-            */
 
 /* profile */
 #profile {
@@ -81,11 +77,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -98,10 +99,6 @@ body * {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
-
-/* O display: flex vai fazer com que todos os elementos dentro da caixa
-  "ul" fiquem um ao lado do outro, de uma maneira flexível   
-*/
 
 /* links */
 ul {
@@ -118,6 +115,7 @@ ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 16px 24px;
 
   background: var(--surface-color);
@@ -132,11 +130,13 @@ ul li a {
 
   transition: background 0.2s;
 }
-/* pseudo-select ou sudo-selector */
+
+/* pseudo-selector */
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
 }
+
 /* social links */
 #social-links {
   display: flex;
@@ -151,19 +151,48 @@ ul li a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 16px;
-  border-radius: 50%;
+
   transition: background 0.2s;
+  border-radius: 50%;
 }
 
 #social-links a:hover {
   background: var(--highlight-color);
-  padding: 16px;
 }
 
 footer {
-  padding: 24px;
+  padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+
+/* media queries */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
