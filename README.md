@@ -1,13 +1,12 @@
 <h1 align="center">Meu DevLinks </h1>
 
 <p align="center">
-Repositório destinado as aulas realizadas no curso "Discover" gratuito da RocketSeat, instruído pelo professor Mayk Brito. <br/>
-<a href="https://app.rocketseat.com.br/journey/discover">Estude esse projeto em formato de vídeo clicando aqui.</a>
+Repositório destinado ao meu DevLinks, onde mostra um pouco sobre mim e minha carreira na programação.
 </p>
 
 <br>
 
-## 🚀 Tecnologias
+## 🚀 Tecnologias utilizadas
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
